@@ -8,4 +8,7 @@ return {
       colorscheme = "onedark",
     },
   },
+  {
+    "xiyaowong/transparent.nvim",
+  },
 }
