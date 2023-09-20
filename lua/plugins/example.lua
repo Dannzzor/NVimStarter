@@ -108,6 +108,10 @@ return {
         function() require("telescope.builtin").find_files({ cwd = require("lazy.core.config").options.root }) end,
         desc = "Find Plugin File",
       },
+      {
+        "<leader>/",
+        nil,
+      },
     },
     -- change some options
     opts = {
