@@ -74,6 +74,7 @@ return {
       opts.mapping = vim.tbl_extend("force", opts.mapping, {
         ["<CR>"] = cmp.config.disable,
         ["<Tab>"] = cmp.mapping.confirm({ select = true }), -- This is the money, use Tab to select first item
+        ["<Enter>"] = cmp.mapping.confirm({ select = true }), -- This is the money, use Tab to select first item
         ["<Ctr-n>"] = cmp.mapping(function(fallback)
           if cmp.visible() then
             cmp.select_next_item()
