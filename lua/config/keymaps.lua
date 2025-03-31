@@ -2,21 +2,23 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local Util = require("lazyvim.util")
+local map = LazyVim.safe_keymap_set
 
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    if opts.remap and not vim.g.vscode then
-      opts.remap = nil
-    end
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
+local Util = require("lazyvim.util")
+--
+-- local function map(mode, lhs, rhs, opts)
+--   local keys = require("lazy.core.handler").handlers.keys
+--   ---@cast keys LazyKeysHandler
+--   -- do not create the keymap if a lazy keys handler exists
+--   if not keys.active[keys.parse({ lhs, mode = mode }).id] then
+--     opts = opts or {}
+--     opts.silent = opts.silent ~= false
+--     if opts.remap and not vim.g.vscode then
+--       opts.remap = nil
+--     end
+--     vim.keymap.set(mode, lhs, rhs, opts)
+--   end
+-- end
 
 -- local builtin = require("telescope.builtin")
 -- vim.keymap.set("n", "<leader>,", builtin.find_files, { desc = "Find files" })
@@ -36,3 +38,7 @@ end
 
 map("n", "<leader>x", ":x<cr>", { desc = "Kill pane" })
 map("n", "<leader>w", ":Bdelete<cr>", { desc = "Kill buffer" })
+
+-- Neo-Tree / the file explorer on the left
+map("n", "<leader>/", "<leader>fe", { desc = "File Explorer (Neo-tree)", remap = true })
+

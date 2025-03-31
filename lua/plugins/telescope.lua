@@ -1,9 +1,13 @@
+if true then return {} end
+-- this is disabled
+
 return {
   {
     "nvim-telescope/telescope.nvim",
     keys = {
       -- disable the keymap to grep files
-      { "<leader>/", false },
+      { "<leader>,", false },
+      { "<leader>.", false },
       -- change a keymap
       { "<leader>,", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
       { "<leader>.", "<cmd>Telescope live_grep<cr>", desc = "Grep" },
